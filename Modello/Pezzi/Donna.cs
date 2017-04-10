@@ -26,7 +26,7 @@ namespace Scacchi.Modello.Pezzi {
             int distanzaTraLeColonne = Math.Abs((int) colonnaArrivo - (int) colonnaPartenza);
             
             // ^ XOR
-            return  (stessaColonna || stessaTraversa) ^ (distanzaTraLeTraverse == distanzaTraLeColonne);
+            return  (stessaColonna ^ stessaTraversa) ^ (distanzaTraLeTraverse == distanzaTraLeColonne);
         }
     }
 }

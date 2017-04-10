@@ -22,7 +22,8 @@ namespace Scacchi.Modello.Pezzi {
             bool stessaColonna = colonnaPartenza == colonnaArrivo;
             bool stessaTraversa = traversaPartenza == traversaArrivo;
             
-            return stessaColonna || stessaTraversa;
+            // ^ XOR
+            return stessaColonna ^ stessaTraversa;
         }
     }
 }
