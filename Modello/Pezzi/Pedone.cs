@@ -20,9 +20,22 @@ namespace Scacchi.Modello.Pezzi {
             Traversa traversaArrivo)
         {
             var stessaColonna = colonnaPartenza == colonnaArrivo;
-            var distanzaTraLeTraverse = (int) traversaArrivo - (int) traversaPartenza;
+            var traversaIniziale = false;
+            var distanzaTraLeTraverse = 0;
 
-            if (stessaColonna && distanzaTraLeTraverse == 1){
+
+            if (this.colore == Colore.Bianco)
+            {
+                traversaIniziale = (traversaPartenza == Traversa.Seconda) ? true : false;
+                distanzaTraLeTraverse = (int) traversaArrivo - (int) traversaPartenza;
+            }
+            else
+            {
+                traversaIniziale = (traversaPartenza == Traversa.Settima) ? true : false;
+                distanzaTraLeTraverse = - ((int) traversaArrivo - (int) traversaPartenza);
+            }
+
+            if (stessaColonna && (distanzaTraLeTraverse == 1 || (traversaIniziale == true && distanzaTraLeTraverse == 2))){
                 return true;
             } else {
                 return false;
